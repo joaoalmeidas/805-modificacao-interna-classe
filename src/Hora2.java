@@ -19,19 +19,19 @@ public class Hora2 {
 		
 		if(hora < 0 || hora >= 24) {
 			
-			throw new IllegalArgumentException("A hora precisa estar entre 0 e 23");
+			throw new IllegalArgumentException("A hora precisa estar entre 0 e 23");	
 			
 		}
 		
 		if(minuto < 0 || minuto >= 60) {
-			
+
 			throw new IllegalArgumentException("O minuto precisa estar entre 0 e 59");
 		}
 		
 		if(segundo < 0 || segundo >= 60) {
+			System.out.println(segundo);
 			throw new IllegalArgumentException("O segundo precisa estar entre 0 e 59");
 		}
-		
 		
 		this.segundo = segundo + (((hora * 60) + minuto) * 60);
 		
@@ -43,7 +43,7 @@ public class Hora2 {
 	}
 
 	public int getHora() {
-		return hora;
+		return segundo/60/60;
 	}
 
 	public void setHora(int hora) {
@@ -52,11 +52,11 @@ public class Hora2 {
 			throw new IllegalArgumentException("A hora precisa estar entre 0 e 23");
 		}
 		
-		this.hora = hora;
+		segundo += hora*60*60;
 	}
 
 	public int getMinuto() {
-		return minuto;
+		return (segundo%60)/60;
 	}
 
 	public void setMinuto(int minuto) {
@@ -65,11 +65,12 @@ public class Hora2 {
 			throw new IllegalArgumentException("O minuto precisa estar entre 0 e 59");
 		}
 		
-		this.minuto = minuto;
+		segundo += minuto * 60;
+		
 	}
 
 	public int getSegundo() {
-		return segundo;
+		return segundo%60%60;
 	}
 
 	public void setSegundo(int segundo) {
@@ -78,7 +79,7 @@ public class Hora2 {
 			throw new IllegalArgumentException("O segundo precisa estar entre 0 e 59");
 		}
 		
-		this.segundo = segundo;
+		this.segundo += segundo;
 	}
 	
 	public String paraFormatoUniversalString() {
@@ -92,8 +93,5 @@ public class Hora2 {
 		return String.format("%d:%02d:%02d %s", ((getHora() == 0 || getHora() == 12) ? 12 : getHora() % 12), getMinuto(), getSegundo(), (getHora() < 12 ? "AM" : "PM"));
 		
 	}
-	
-	
-	
 	
 }
