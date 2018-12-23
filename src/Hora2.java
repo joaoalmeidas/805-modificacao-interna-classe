@@ -56,7 +56,7 @@ public class Hora2 {
 	}
 
 	public int getMinuto() {
-		return (segundo%60)/60;
+		return (segundo/60)%60;
 	}
 
 	public void setMinuto(int minuto) {
