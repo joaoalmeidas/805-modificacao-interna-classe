@@ -1,8 +1,6 @@
 
 public class Hora2 {
 	
-	private int hora;
-	private int minuto;
 	private int segundo;
 	
 	public Hora2() {
@@ -34,9 +32,8 @@ public class Hora2 {
 			throw new IllegalArgumentException("O segundo precisa estar entre 0 e 59");
 		}
 		
-		this.hora = hora;
-		this.minuto = minuto;
-		this.segundo = segundo;
+		
+		this.segundo = segundo + (((hora * 60) + minuto) * 60);
 		
 	}
 	
