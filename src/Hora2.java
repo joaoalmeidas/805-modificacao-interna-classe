@@ -37,7 +37,6 @@ public class Hora2 {
 		
 	}
 	
-	
 	public Hora2(Hora2 hora) {
 		this(hora.getHora(), hora.getMinuto(), hora.getSegundo());
 	}
